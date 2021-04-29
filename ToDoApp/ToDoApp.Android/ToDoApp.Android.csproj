@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+        <ProjectGuid>{E3157085-9518-49B2-9D63-424B89C6A9BB}</ProjectGuid>
+        <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+        <OutputType>Library</OutputType>
+        <RootNamespace>ToDoApp.Android</RootNamespace>
+        <AssemblyName>ToDoApp.Android</AssemblyName>
+        <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
+        <AndroidApplication>True</AndroidApplication>
+        <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+        <AndroidResgenClass>Resource</AndroidResgenClass>
+        <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+        <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+        <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+        <AndroidUseLatestPlatformSdk>true</AndroidUseLatestPlatformSdk>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>full</DebugType>
+        <Optimize>false</Optimize>
+        <OutputPath>bin\Debug</OutputPath>
+        <DefineConstants>DEBUG;</DefineConstants>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AndroidLinkMode>None</AndroidLinkMode>
+    </PropertyGroup>
+    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+        <DebugSymbols>true</DebugSymbols>
+        <DebugType>pdbonly</DebugType>
+        <Optimize>true</Optimize>
+        <OutputPath>bin\Release</OutputPath>
+        <ErrorReport>prompt</ErrorReport>
+        <WarningLevel>4</WarningLevel>
+        <AndroidManagedSymbols>true</AndroidManagedSymbols>
+        <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    </PropertyGroup>
+    <ItemGroup>
+        <Reference Include="Java.Interop" />
+        <Reference Include="System" />
+        <Reference Include="System.Xml" />
+        <Reference Include="System.Core" />
+        <Reference Include="Mono.Android" />
+        <Reference Include="Mono.Android.Export" />
+    </ItemGroup>
+    <ItemGroup>
+        <Compile Include="Application.cs" />
+        <Compile Include="Resources\Resource.designer.cs" />
+        <Compile Include="Properties\AssemblyInfo.cs" />
+        <Compile Include="Services\DialogService.cs" />
+        <Compile Include="Setup.cs" />
+        <Compile Include="SplashScreen.cs" />
+        <Compile Include="Views\IssuesView.cs" />
+    </ItemGroup>
+    <ItemGroup>
+        <None Include="Resources\AboutResources.txt" />
+        <None Include="Properties\AndroidManifest.xml" />
+        <None Include="Assets\AboutAssets.txt" />
+    </ItemGroup>
+    <ItemGroup>
+        <AndroidResource Include="Resources\layout\IssueItemView.axml" />
+        <AndroidResource Include="Resources\layout\IssuesView.axml" />
+        <AndroidResource Include="Resources\layout\SplashScreen.axml" />
+        <AndroidResource Include="Resources\values\colors.xml" />
+        <AndroidResource Include="Resources\values\strings.xml" />
+        <AndroidResource Include="Resources\values\styles.xml" />
+    </ItemGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\ToDoApp\ToDoApp.csproj">
+        <Project>{858f632c-ce3d-4e20-86bc-7d8a894735e9}</Project>
+        <Name>ToDoApp</Name>
+      </ProjectReference>
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="Autofac.Extras.MvvmCross" Version="5.1.0" />
+      <PackageReference Include="MvvmCross" Version="7.1.2" />
+      <PackageReference Include="MvvmCross.DroidX.RecyclerView" Version="7.1.2" />
+      <PackageReference Include="Xamarin.AndroidX.Activity" Version="1.1.0.3" />
+      <PackageReference Include="Xamarin.AndroidX.Annotation" Version="1.1.0.6" />
+      <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.2.0.4" />
+      <PackageReference Include="Xamarin.AndroidX.AppCompat.AppCompatResources" Version="1.2.0.4" />
+      <PackageReference Include="Xamarin.AndroidX.Arch.Core.Common" Version="2.1.0.6" />
+      <PackageReference Include="Xamarin.AndroidX.Arch.Core.Runtime" Version="2.1.0.6" />
+      <PackageReference Include="Xamarin.AndroidX.AsyncLayoutInflater" Version="1.0.0.1" />
+      <PackageReference Include="Xamarin.AndroidX.CardView" Version="1.0.0.1" />
+      <PackageReference Include="Xamarin.AndroidX.Collection" Version="1.1.0.5" />
+      <PackageReference Include="Xamarin.AndroidX.CoordinatorLayout" Version="1.1.0.1" />
+      <PackageReference Include="Xamarin.AndroidX.Core" Version="1.3.0.3" />
+      <PackageReference Include="Xamarin.AndroidX.CursorAdapter" Version="1.0.0.5" />
+      <PackageReference Include="Xamarin.AndroidX.CustomView" Version="1.1.0.3-rc01" />
+      <PackageReference Include="Xamarin.AndroidX.DocumentFile" Version="1.0.1.1" />
+      <PackageReference Include="Xamarin.AndroidX.DrawerLayout" Version="1.0.0.5" />
+      <PackageReference Include="Xamarin.AndroidX.Fragment" Version="1.2.5.3" />
+      <PackageReference Include="Xamarin.AndroidX.Interpolator" Version="1.0.0.5" />
+      <PackageReference Include="Xamarin.AndroidX.Legacy.Support.Core.UI" Version="1.0.0.1" />
+      <PackageReference Include="Xamarin.AndroidX.Legacy.Support.Core.Utils" Version="1.0.0.1" />
+      <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.2.0.3" />
+      <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData.Core" Version="2.2.0.3" />
+      <PackageReference Include="Xamarin.AndroidX.Lifecycle.Runtime" Version="2.2.0.3" />
+      <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModel" Version="2.2.0.3" />
+      <PackageReference Include="Xamarin.AndroidX.Lifecycle.ViewModelSavedState" Version="2.2.0.3" />
+      <PackageReference Include="Xamarin.AndroidX.Loader" Version="1.1.0.5" />
+      <PackageReference Include="Xamarin.AndroidX.LocalBroadcastManager" Version="1.0.0.1" />
+      <PackageReference Include="Xamarin.AndroidX.Migration" Version="1.0.7.1" />
+      <PackageReference Include="Xamarin.AndroidX.MultiDex" Version="2.0.1.4" />
+      <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.1.1.5" />
+      <PackageReference Include="Xamarin.AndroidX.Print" Version="1.0.0.1" />
+      <PackageReference Include="Xamarin.AndroidX.RecyclerView" Version="1.1.0.5" />
+      <PackageReference Include="Xamarin.AndroidX.SavedState" Version="1.1.0.3-alpha01" />
+      <PackageReference Include="Xamarin.AndroidX.SlidingPaneLayout" Version="1.0.0.1" />
+      <PackageReference Include="Xamarin.AndroidX.SwipeRefreshLayout" Version="1.0.0.1" />
+      <PackageReference Include="Xamarin.AndroidX.Transition" Version="1.2.0.1" />
+      <PackageReference Include="Xamarin.AndroidX.VectorDrawable" Version="1.1.0.5" />
+      <PackageReference Include="Xamarin.AndroidX.VectorDrawable.Animated" Version="1.1.0.5" />
+      <PackageReference Include="Xamarin.AndroidX.VersionedParcelable" Version="1.1.1.5" />
+      <PackageReference Include="Xamarin.AndroidX.ViewPager" Version="1.0.0.5" />
+      <PackageReference Include="Xamarin.Google.Android.Material" Version="1.0.0.1" />
+    </ItemGroup>
+    <Import Project="..\ToDoApp\ToDoApp.projitems" Label="Shared" Condition="Exists('..\ToDoApp\ToDoApp.projitems')" />
+    <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+</Project>
