@@ -15,7 +15,7 @@ namespace ToDoApp.ViewModels
         public IssuesViewModel(IMvxNavigationService navigationService, IDialogService dialogService)
         {
             IssueTapCommand = new MvxCommand<IssueItemViewModel>(
-                item => dialogService.DisplayAlertAsync(new DisplayAlertOptions($"{item.Status} issue", item.Title, "Ok")));
+                item => dialogService.DisplayAlertAsync(new DisplayAlertOptions(item.Title, $"{item.Status} issue", "Ok")));
 
             Issues = new MvxObservableCollection<IssueItemViewModel>
             {

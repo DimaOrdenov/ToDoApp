@@ -95,20 +95,24 @@
     <ItemGroup>
         <InterfaceDefinition Include="LaunchScreen.storyboard" />
         <InterfaceDefinition Include="Main.storyboard" />
-        <InterfaceDefinition Include="Views\IssuesViewController.xib" />
     </ItemGroup>
     <ItemGroup>
         <None Include="Info.plist" />
         <None Include="Entitlements.plist" />
     </ItemGroup>
     <ItemGroup>
+        <Compile Include="Extensions\UiColorExtensions.cs" />
         <Compile Include="Main.cs" />
         <Compile Include="AppDelegate.cs" />
+        <Compile Include="Services\DialogService.cs" />
         <Compile Include="Setup.cs" />
+        <Compile Include="Sources\IssuesTableViewSource.cs" />
+        <Compile Include="Styles\Colors.cs" />
         <Compile Include="ViewController.cs" />
         <Compile Include="ViewController.designer.cs">
             <DependentUpon>ViewController.cs</DependentUpon>
         </Compile>
+        <Compile Include="Views\IssueItemView.cs" />
         <Compile Include="Views\IssuesViewController.cs" />
     </ItemGroup>
     <ItemGroup>
@@ -119,6 +123,7 @@
     </ItemGroup>
     <ItemGroup>
       <PackageReference Include="Autofac.Extras.MvvmCross" Version="5.1.0" />
+      <PackageReference Include="Cirrious.FluentLayout" Version="2.9.0" />
       <PackageReference Include="MvvmCross" Version="7.1.2" />
       <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     </ItemGroup>
