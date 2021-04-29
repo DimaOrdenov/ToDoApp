@@ -5,9 +5,15 @@
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
+    <Toolbar android:layout_width="match_parent"
+             android:layout_height="wrap_content"
+             android:title="Список задач"
+             android:background="@color/primary"
+             android:titleTextColor="@color/textColorOnPrimary"/>
+
     <mvvmcross.droidx.recyclerview.MvxRecyclerView android:id="@+id/issuesListView"
                                                    android:layout_width="match_parent"
                                                    android:layout_height="match_parent"
-                                                   android:background="@color/primary"/>
-    
+                                                   android:background="@color/mainBackground"/>
+
 </LinearLayout>

@@ -1,6 +1,7 @@
 using System;
 using MvvmCross.ViewModels;
 using ToDoApp.Definitions.Enums;
+using ToDoApp.Extensions;
 
 namespace ToDoApp.ViewModels
 {
@@ -13,5 +14,8 @@ namespace ToDoApp.ViewModels
         public IssueStatusType Status { get; set; }
         
         public DateTimeOffset CreatedAt { get; set; }
+
+        public string StatusStr => Status.GetEnumString();
+        public string CreatedAtStr => CreatedAt.ToString("HH:mm dd.MM.yyyy");
     }
 }

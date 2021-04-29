@@ -1,8 +1,6 @@
 using System.Threading.Tasks;
+using Android.App;
 using Android.Content;
-using AndroidX.AppCompat.App;
-using MvvmCross.Platforms.Android;
-using MvvmCross.Platforms.Android.Views;
 using ToDoApp.Definitions.Options;
 using ToDoApp.Services;
 
@@ -12,8 +10,9 @@ namespace ToDoApp.Android.Services
     {
         public Task DisplayAlertAsync(DisplayAlertOptions options)
         {
-            var alertDialog = new global::Android.App.AlertDialog.Builder(global::Android.App.Application.Context)
+            var alertDialog = new AlertDialog.Builder(Xamarin.Essentials.Platform.CurrentActivity)
                 .Create();
+            
 
             alertDialog.SetTitle(options.Title);
             alertDialog.SetMessage(options.Message);

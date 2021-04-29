@@ -20,7 +20,6 @@ namespace ToDoApp.Android.Views
             SetContentView(Resource.Layout.IssuesView);
 
             var issuesListView = FindViewById<MvxRecyclerView>(Resource.Id.issuesListView);
-
             issuesListView.ItemTemplateId = Resource.Layout.IssueItemView;
 
             var set = CreateBindingSet();
@@ -32,7 +31,7 @@ namespace ToDoApp.Android.Views
             set.Bind(issuesListView)
                 .For(b => b.ItemClick)
                 .To(vm => vm.IssueTapCommand);
-
+            
             set.Apply();
         }
     }

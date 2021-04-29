@@ -116,6 +116,7 @@
       <PackageReference Include="Xamarin.AndroidX.VectorDrawable.Animated" Version="1.1.0.5" />
       <PackageReference Include="Xamarin.AndroidX.VersionedParcelable" Version="1.1.1.5" />
       <PackageReference Include="Xamarin.AndroidX.ViewPager" Version="1.0.0.5" />
+      <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
       <PackageReference Include="Xamarin.Google.Android.Material" Version="1.0.0.1" />
     </ItemGroup>
     <Import Project="..\ToDoApp\ToDoApp.projitems" Label="Shared" Condition="Exists('..\ToDoApp\ToDoApp.projitems')" />

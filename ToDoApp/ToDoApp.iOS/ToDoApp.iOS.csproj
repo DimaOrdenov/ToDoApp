@@ -120,6 +120,7 @@
     <ItemGroup>
       <PackageReference Include="Autofac.Extras.MvvmCross" Version="5.1.0" />
       <PackageReference Include="MvvmCross" Version="7.1.2" />
+      <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
     </ItemGroup>
     <Import Project="..\ToDoApp\ToDoApp.projitems" Label="Shared" Condition="Exists('..\ToDoApp\ToDoApp.projitems')" />
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />

@@ -1,22 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:local="http://schemas.android.com/apk/res-auto"
               android:orientation="vertical"
               android:layout_width="match_parent"
-              android:layout_height="match_parent">
-
-    <TextView android:id="@+id/issueItemTitle"
-              android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:textColor="@color/textColorOnPrimary"/>
+              android:paddingHorizontal="16dp"
+              android:paddingTop="16dp"
+              android:background="?android:attr/selectableItemBackground"
+              android:clickable="true">
 
-    <TextView android:id="@+id/issueItemStatus"
-              android:layout_width="match_parent"
+    <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:textColor="@color/textColorOnPrimary"/>
+              local:MvxBind="Text Title"
+              android:textColor="@color/textColorOnWhite"/>
 
-    <TextView android:id="@+id/issueItemCreatedAt"
-              android:layout_width="match_parent"
+    <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              android:textColor="@color/textColorOnPrimary"/>
+              local:MvxBind="Text StatusStr"
+              android:textColor="@color/textColorOnWhite"/>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              local:MvxBind="Text CreatedAtStr"
+              android:textColor="@color/textColorOnWhite"/>
+
+    <View android:layout_width="match_parent"
+          android:layout_height="1dp"
+          android:layout_marginTop="16dp"
+          android:background="@android:color/darker_gray"/>
 
 </LinearLayout>

@@ -10,7 +10,6 @@ namespace ToDoApp.ViewModels
 {
     public class IssuesViewModel : MvxViewModel
     {
-        private string _text;
         private MvxObservableCollection<IssueItemViewModel> _issues;
 
         public IssuesViewModel(IMvxNavigationService navigationService, IDialogService dialogService)
