@@ -13,20 +13,15 @@ namespace ToDoApp.iOS.Views
         private IssuesTableViewSource _source;
         private UITableView _tableView;
 
-        public IssuesViewController()
-        {
-        }
-
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
 
-            Title = "Список задач";
+            Title = "Issues";
 
             _tableView = new UITableView
             {
                 RowHeight = UITableView.AutomaticDimension,
-                EstimatedRowHeight = 100f,
             };
 
             _source = new IssuesTableViewSource(_tableView);

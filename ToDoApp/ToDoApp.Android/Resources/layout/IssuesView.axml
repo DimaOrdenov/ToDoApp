@@ -7,7 +7,7 @@
 
     <Toolbar android:layout_width="match_parent"
              android:layout_height="wrap_content"
-             android:title="Список задач"
+             android:title="Issues"
              android:background="@color/primary"
              android:titleTextColor="@color/textColorOnPrimary"/>
 

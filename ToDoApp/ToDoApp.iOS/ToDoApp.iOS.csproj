@@ -112,8 +112,10 @@
         <Compile Include="ViewController.designer.cs">
             <DependentUpon>ViewController.cs</DependentUpon>
         </Compile>
+        <Compile Include="Views\BaseTableItemView.cs" />
         <Compile Include="Views\IssueItemView.cs" />
         <Compile Include="Views\IssuesViewController.cs" />
+        <Compile Include="Views\IssueDetailsViewController.cs" />
     </ItemGroup>
     <ItemGroup>
       <ProjectReference Include="..\ToDoApp\ToDoApp.csproj">

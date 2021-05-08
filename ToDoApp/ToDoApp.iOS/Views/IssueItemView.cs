@@ -1,6 +1,7 @@
 using System;
 using Cirrious.FluentLayouts.Touch;
 using CoreGraphics;
+using Foundation;
 using MvvmCross.Binding.BindingContext;
 using MvvmCross.Platforms.Ios.Binding.Views;
 using ToDoApp.iOS.Styles;
@@ -8,78 +9,71 @@ using UIKit;
 
 namespace ToDoApp.iOS.Views
 {
-    public class IssueItemView : MvxTableViewCell
+    public class IssueItemView : BaseTableViewCell
     {
-        private readonly UILabel _titleLabel;
-        private readonly UILabel _statusLabel;
-        private readonly UILabel _dateLabel;
-        private bool _didSetupConstraints;
+        private UILabel _titleLabel;
+        private UILabel _statusLabel;
+        private UILabel _dateLabel;
 
         public IssueItemView(IntPtr handle)
             : base(handle)
         {
+        }
+
+        protected override void CreateView()
+        {
+            base.CreateView();
+
             SelectionStyle = UITableViewCellSelectionStyle.Default;
 
             _titleLabel = new UILabel
             {
                 TextColor = Colors.TextOnWhite,
-                BackgroundColor = UIColor.LightGray,
             };
+            _titleLabel.Font = _titleLabel.Font.WithSize(20);
 
             _statusLabel = new UILabel
             {
                 TextColor = Colors.TextOnWhite,
-                BackgroundColor = UIColor.Red,
             };
 
             _dateLabel = new UILabel
             {
                 TextColor = Colors.TextOnWhite,
-                BackgroundColor = UIColor.Blue,
             };
 
             ContentView.AddSubviews(
                 _titleLabel,
-                _statusLabel
-                // ,
-                // _dateLabel
-                );
-            
+                _statusLabel,
+                _dateLabel
+            );
+
             ContentView.SubviewsDoNotTranslateAutoresizingMaskIntoConstraints();
 
             this.DelayBind(() =>
             {
-                this.AddBindings(_titleLabel, "Text Title");
+                this.AddBindings(_titleLabel, "Text Item.Title");
                 this.AddBindings(_statusLabel, "Text StatusStr");
                 this.AddBindings(_dateLabel, "Text CreatedAtStr");
             });
-
-            SetNeedsUpdateConstraints();
         }
 
-        public override void UpdateConstraints()
+        protected override void CreateConstraints()
         {
-            if (!_didSetupConstraints)
-            {
-                ContentView.AddConstraints(
-                    _titleLabel.AtTopOf(ContentView),
-                    _titleLabel.AtLeftOf(ContentView),
-                    _titleLabel.AtRightOf(ContentView),
-                    _titleLabel.AtBottomOf(_statusLabel),
-                    
-                    _statusLabel.AtBottomOf(_titleLabel),
-                    _statusLabel.AtLeftOf(ContentView),
-                    _statusLabel.AtRightOf(ContentView)
-                    // ,
-                    // _dateLabel.AtBottomOf(_statusLabel),
-                    // _dateLabel.AtLeftOf(ContentView),
-                    // _dateLabel.AtRightOf(ContentView)
-                    );
+            base.CreateConstraints();
 
-                _didSetupConstraints = true;
-            }
-
-            base.UpdateConstraints();
+            ContentView.AddConstraints(
+                _titleLabel.AtTopOf(ContentView).Plus(16),
+                _titleLabel.AtLeftOf(ContentView).Plus(16),
+                _titleLabel.AtRightOf(ContentView).Minus(16),
+                _statusLabel.Below(_titleLabel),
+                _statusLabel.WithSameLeft(_titleLabel),
+                _statusLabel.WithSameRight(_titleLabel),
+                _dateLabel.Below(_statusLabel),
+                _dateLabel.WithSameLeft(_titleLabel),
+                _dateLabel.WithSameRight(_titleLabel),
+                _dateLabel.AtBottomOf(ContentView).Minus(16)
+            );
         }
     }
 }

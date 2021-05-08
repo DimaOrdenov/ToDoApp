@@ -11,7 +11,7 @@
 
     <TextView android:layout_width="match_parent"
               android:layout_height="wrap_content"
-              local:MvxBind="Text Title"
+              local:MvxBind="Text Item.Title"
               android:textColor="@color/textColorOnWhite"/>
 
     <TextView android:layout_width="match_parent"

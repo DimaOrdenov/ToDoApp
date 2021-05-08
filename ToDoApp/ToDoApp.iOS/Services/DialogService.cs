@@ -11,7 +11,18 @@ namespace ToDoApp.iOS.Services
         {
             var alert = UIAlertController.Create(options.Title, options.Message, UIAlertControllerStyle.Alert);
 
-            alert.AddAction(UIAlertAction.Create(options.CancelButton, UIAlertActionStyle.Default, null));
+            alert.AddAction(UIAlertAction.Create(
+                options.CancelButton,
+                UIAlertActionStyle.Cancel,
+                action => options.CancelButtonCommand?.Execute()));
+
+            if (!string.IsNullOrEmpty(options.AcceptButton))
+            {
+                alert.AddAction(UIAlertAction.Create(
+                    options.AcceptButton,
+                    UIAlertActionStyle.Default,
+                    action => options.AcceptButtonCommand?.Execute()));
+            }
 
             return Xamarin.Essentials.Platform.GetCurrentUIViewController().PresentViewControllerAsync(alert, true);
         }
