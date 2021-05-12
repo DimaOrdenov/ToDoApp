@@ -17,6 +17,7 @@ namespace ToDoApp.ViewModels
         public IssueStatusType Status => (IssueStatusType)Item.Status;
 
         public string StatusStr => Status.GetEnumString();
+        
         public string CreatedAtStr => Item.CreatedAt.ToString("HH:mm dd.MM.yyyy");
     }
 }

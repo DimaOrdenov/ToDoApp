@@ -24,10 +24,27 @@ namespace ToDoApp.ViewModels
             _issueRepository = issueRepository;
 
             IssueTapCommand = new MvxCommand<IssueItemViewModel>(
-                item => navigationService.Navigate<IssueDetailsViewModel>());
+                async item =>
+                {
+                    if (await navigationService.Navigate<IssueDetailsViewModel, Issue, bool>(item.Item))
+                    {
+                        GetIssues();
+                    }
+                });
+
+            AddIssueTapCommand = new MvxCommand(
+                async () =>
+                {
+                    if (await navigationService.Navigate<IssueDetailsViewModel, Issue, bool>(null))
+                    {
+                        GetIssues();
+                    }
+                });
         }
 
         public IMvxCommand<IssueItemViewModel> IssueTapCommand { get; }
+
+        public IMvxCommand AddIssueTapCommand { get; }
 
         public MvxObservableCollection<IssueItemViewModel> Issues
         {
@@ -69,11 +86,16 @@ namespace ToDoApp.ViewModels
                 Xamarin.Essentials.Preferences.Set("FirstLaunch", false);
             }
 
+            GetIssues();
+
+            return base.Initialize();
+        }
+
+        private void GetIssues()
+        {
             Issues = new MvxObservableCollection<IssueItemViewModel>(
                 _issueRepository.Get().Select(x =>
                     new IssueItemViewModel(x)));
-
-            return base.Initialize();
         }
     }
 }

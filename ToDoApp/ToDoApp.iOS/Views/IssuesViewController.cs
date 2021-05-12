@@ -1,4 +1,5 @@
 using Cirrious.FluentLayouts.Touch;
+using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using MvvmCross.Platforms.Ios.Views;
 using ToDoApp.iOS.Sources;
@@ -12,12 +13,17 @@ namespace ToDoApp.iOS.Views
     {
         private IssuesTableViewSource _source;
         private UITableView _tableView;
+        private UIBarButtonItem _addIssueButton;
 
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
 
             Title = "Issues";
+
+            _addIssueButton = new UIBarButtonItem(UIBarButtonSystemItem.Add);
+
+            NavigationItem.RightBarButtonItem = _addIssueButton;
 
             _tableView = new UITableView
             {
@@ -47,6 +53,10 @@ namespace ToDoApp.iOS.Views
             set.Bind(_source)
                 .For(x => x.SelectionChangedCommand)
                 .To(vm => vm.IssueTapCommand);
+
+            set.Bind(_addIssueButton)
+                .For(x => x.BindClicked())
+                .To(vm => vm.AddIssueTapCommand);
 
             set.Apply();
         }

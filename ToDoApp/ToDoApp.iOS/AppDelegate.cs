@@ -1,7 +1,6 @@
 ﻿using Foundation;
 using MvvmCross.Platforms.Ios.Core;
 using UIKit;
-using Xamarin.Essentials;
 
 namespace ToDoApp.iOS
 {
@@ -10,8 +9,6 @@ namespace ToDoApp.iOS
     [Register("AppDelegate")]
     public class AppDelegate : MvxApplicationDelegate<Setup, App>
     {
-        public override UIWindow Window { get; set; }
-
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             var result = base.FinishedLaunching(application, launchOptions);
