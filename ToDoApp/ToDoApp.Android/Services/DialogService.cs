@@ -17,7 +17,7 @@ namespace ToDoApp.Android.Services
             alertDialog.SetTitle(options.Title);
             alertDialog.SetMessage(options.Message);
 
-            if (string.IsNullOrEmpty(options.AcceptButton))
+            if (!string.IsNullOrEmpty(options.AcceptButton))
             {
                 alertDialog.SetButton((int)DialogButtonType.Positive, options.AcceptButton, (o, args) => options.AcceptButtonCommand?.Execute());
             }

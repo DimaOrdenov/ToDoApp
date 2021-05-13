@@ -1,18 +1,13 @@
 using System;
-using System.ComponentModel;
-using System.Drawing;
-using System.Globalization;
 using System.Linq;
 using Cirrious.FluentLayouts.Touch;
 using CoreGraphics;
 using UIKit;
-using Foundation;
-using MvvmCross.Converters;
 using MvvmCross.Platforms.Ios.Binding;
 using MvvmCross.Platforms.Ios.Binding.Views;
 using MvvmCross.Platforms.Ios.Presenters.Attributes;
 using MvvmCross.Platforms.Ios.Views;
-using MvvmCross.ViewModels;
+using ToDoApp.Converters;
 using ToDoApp.Definitions.Enums;
 using ToDoApp.Extensions;
 using ToDoApp.iOS.Styles;
@@ -215,39 +210,5 @@ namespace ToDoApp.iOS.Views
         }
     }
 
-    public class BoolNegativeConverter : IMvxValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return !(bool)value;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return (bool)value;
-        }
-    }
-
-    public class IsNullOrDefaultConverter : IMvxValueConverter
-    {
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            if (value is string strValue)
-            {
-                return string.IsNullOrEmpty(strValue);
-            }
-
-            if (value is DateTimeOffset dateTimeOffsetValue)
-            {
-                return dateTimeOffsetValue == default;
-            }
-
-            return value == null;
-        }
-
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return null;
-        }
-    }
+    
 }

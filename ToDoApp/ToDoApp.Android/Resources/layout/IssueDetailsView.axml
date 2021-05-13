@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:local="http://schemas.android.com/apk/res-auto"
+              xmlns:app="http://schemas.android.com/tools"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+
+    <androidx.appcompat.widget.Toolbar android:id="@+id/issueDetails_toolbar"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"
+                                       android:background="@color/primary">
+
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Issues"
+                  android:textColor="@color/textColorOnPrimary"
+                  android:textSize="20sp"
+                  android:textStyle="bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Title:"
+              android:layout_marginHorizontal="16dp"
+              android:layout_marginTop="16dp"/>
+
+    <EditText android:id="@+id/issueDetails_title"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:singleLine="true"
+              android:layout_marginHorizontal="16dp"/>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Description:"
+              android:layout_marginHorizontal="16dp"
+              android:layout_marginTop="8dp"/>
+
+    <EditText android:id="@+id/issueDetails_description"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:maxLines="5"
+              android:layout_marginHorizontal="16dp"/>
+
+    <TextView android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:text="Status:"
+              android:layout_marginHorizontal="16dp"
+              android:layout_marginTop="8dp"/>
+
+    <mvvmcross.platforms.android.binding.views.MvxSpinner android:id="@+id/issueDetails_statusSpinner"
+                                                          android:layout_width="match_parent"
+                                                          android:layout_height="wrap_content"
+                                                          android:layout_marginHorizontal="16dp"
+                                                          android:layout_marginTop="8dp"/>
+
+    <LinearLayout android:id="@+id/issueDetails_createdAtStack"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:paddingHorizontal="16dp"
+                  android:layout_marginTop="8dp">
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Created: "/>
+
+        <TextView android:id="@+id/issueDetails_createdAtLabel"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textColor="@color/textColorOnWhite"/>
+
+    </LinearLayout>
+
+    <LinearLayout android:id="@+id/issueDetails_updatedAtStack"
+                  android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:orientation="horizontal"
+                  android:paddingHorizontal="16dp">
+
+        <TextView android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:text="Updated: "/>
+
+        <TextView android:id="@+id/issueDetails_updatedAtLabel"
+                  android:layout_width="wrap_content"
+                  android:layout_height="wrap_content"
+                  android:textColor="@color/textColorOnWhite"/>
+
+    </LinearLayout>
+
+    <Button android:id="@+id/issueDetails_saveButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/accent"
+            android:textColor="@color/textColorOnAccent"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="32dp"/>
+
+    <Button android:id="@+id/issueDetails_deleteButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Delete issue"
+            android:background="@android:color/holo_red_dark"
+            android:textColor="@android:color/white"
+            android:foreground="?android:attr/selectableItemBackground"
+            android:clickable="true"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginTop="16dp"/>
+
+</LinearLayout>

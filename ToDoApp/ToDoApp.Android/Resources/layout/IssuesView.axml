@@ -1,19 +1,46 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:local="http://schemas.android.com/apk/res-auto"
+              xmlns:app="http://schemas.android.com/tools"
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
 
-    <Toolbar android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:title="Issues"
-             android:background="@color/primary"
-             android:titleTextColor="@color/textColorOnPrimary"/>
+    <androidx.appcompat.widget.Toolbar android:id="@+id/issues_toolbar"
+                                       android:layout_width="match_parent"
+                                       android:layout_height="wrap_content"
+                                       android:background="@color/primary">
 
-    <mvvmcross.droidx.recyclerview.MvxRecyclerView android:id="@+id/issuesListView"
-                                                   android:layout_width="match_parent"
-                                                   android:layout_height="match_parent"
-                                                   android:background="@color/mainBackground"/>
+        <TextView android:layout_width="match_parent"
+                  android:layout_height="wrap_content"
+                  android:text="Issues"
+                  android:textColor="@color/textColorOnPrimary"
+                  android:textSize="20sp"
+                  android:textStyle="bold"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <RelativeLayout android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+        <mvvmcross.droidx.recyclerview.MvxRecyclerView android:id="@+id/issues_recyclerView"
+                                                       android:layout_width="match_parent"
+                                                       android:layout_height="match_parent"
+                                                       android:background="@color/mainBackground"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton android:id="@+id/issues_addIssueFab"
+                                                                               android:layout_width="wrap_content"
+                                                                               android:layout_height="wrap_content"
+                                                                               android:src="@drawable/ic_add"
+                                                                               android:contentDescription="Add issue"
+                                                                               android:layout_margin="16dp"
+                                                                               android:layout_alignParentBottom="true"
+                                                                               android:layout_alignParentEnd="true"
+                                                                               android:clickable="true"/>
+
+        <!--        android:background="@color/accent"-->
+        <!--        android:foreground="?android:attr/selectableItemBackground"-->
+
+    </RelativeLayout>
 
 </LinearLayout>
