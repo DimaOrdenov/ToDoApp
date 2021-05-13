@@ -18,7 +18,7 @@ namespace ToDoApp.iOS.Views
         public override void ViewDidLoad()
         {
             base.ViewDidLoad();
-
+            
             Title = "Issues";
 
             _addIssueButton = new UIBarButtonItem(UIBarButtonSystemItem.Add);

@@ -1,5 +1,7 @@
-﻿using Foundation;
+﻿using System.Drawing;
+using Foundation;
 using MvvmCross.Platforms.Ios.Core;
+using ToDoApp.iOS.Styles;
 using UIKit;
 
 namespace ToDoApp.iOS
@@ -12,7 +14,24 @@ namespace ToDoApp.iOS
         public override bool FinishedLaunching(UIApplication application, NSDictionary launchOptions)
         {
             var result = base.FinishedLaunching(application, launchOptions);
+            
+            // UIApplication.SharedApplication.StatusBarStyle = UIStatusBarStyle.LightContent;
 
+            UINavigationBar.Appearance.SetTitleTextAttributes(new UITextAttributes
+            {
+                TextColor = Colors.TextOnPrimary,
+                Font = UIFont.SystemFontOfSize(17f, UIFontWeight.Semibold)
+            });
+            UINavigationBar.Appearance.Translucent = false;
+            UINavigationBar.Appearance.BarTintColor = Colors.Primary;
+            UINavigationBar.Appearance.TintColor = UIColor.White;
+            UINavigationBar.Appearance.BackgroundColor = Colors.Primary;
+            UINavigationBar.Appearance.BackIndicatorImage = new UIImage();
+
+            UITextField.Appearance.TintColor = Colors.Accent;
+            UITextView.Appearance.TintColor = Colors.Accent;
+            UIButton.Appearance.SetTitleColor(Colors.Accent, UIControlState.Highlighted);
+            
             return result;
         }
     }

@@ -100,14 +100,14 @@ namespace ToDoApp.iOS.Views
                 BackgroundColor = UIColor.SystemRedColor,
             };
             _deleteIssueButton.SetTitle("Delete issue", UIControlState.Normal);
-            _deleteIssueButton.SetTitleColor(UIColor.LightGray, UIControlState.Highlighted);
+            // _deleteIssueButton.SetTitleColor(UIColor.LightGray, UIControlState.Highlighted);
 
             _saveChangesButton = new UIButton
             {
                 BackgroundColor = Colors.Accent,
             };
             _saveChangesButton.SetTitle("Save changes", UIControlState.Normal);
-            _saveChangesButton.SetTitleColor(UIColor.LightGray, UIControlState.Highlighted);
+            // _saveChangesButton.SetTitleColor(UIColor.LightGray, UIControlState.Highlighted);
 
             _stackView = new UIStackView
             {
